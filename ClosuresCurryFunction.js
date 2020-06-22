@@ -2,6 +2,8 @@
 Use a closure to create multiple functions for adding a prefix to a name.
 The prefix could be Doctor, Duchess, Sir, and so on.
 const prefixSir = addPrefix("Sir");
+Problem #3
+Use closures to create multiple functions for adding both a prefix and a suffix to a name.
 */
 // function addPrefix(prefix) {
 //   return function (name) {
@@ -18,11 +20,30 @@ const addPrefix = (prefix) => {
 }
 
 const nameWithPrefix = addPrefix("Doctor")("Den")("Junior");
-console.log(nameWithPrefix);
+//console.log(nameWithPrefix);
 
 
 
-//Doctor Den Junior
+
+
+
+//Problem #4
+//Use closures to create multiple functions to first add to and then multiply a value. It should be possible to do the following:
+
+const addMulti = (number1) => {
+  return (number2) => {
+    return `Add two number  ${number1 + number2}  Multiple two number  ${number1 * number2}`
+  }
+}
+
+
+const addTwoMultiThree = addMulti(2)(3)
+console.log(addTwoMultiThree);
+
+
+
+
+
 
 
 
