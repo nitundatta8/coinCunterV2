@@ -12,7 +12,7 @@ const quarters = (userAmount) => {
   if (amt / 25 < 1) {
     return amt;
   } else {
-    coins.push("25");
+    coins.push("quarter");
     return quarters(amt - 25);//[amt - 25]
   }
 };
@@ -22,7 +22,7 @@ const dimes = (element) => {
   if (amt / 10 < 1) {
     return amt;
   } else {
-    coins.push("10");
+    coins.push("dime");
     return dimes(amt - 10);
   }
 };
@@ -32,7 +32,7 @@ const nickels = (element) => {
   if (amt / 5 < 1) {
     return amt;
   } else {
-    coins.push("5");
+    coins.push("nickel");
     return dimes(amt - 5);
   }
 };
@@ -41,21 +41,43 @@ const pennies = (element) => {
   if (amt / 1 < 1) {
     return amt;
   } else {
-    coins.push("1");
+    coins.push("penny");
     return dimes(amt - 1);
   }
 
 }
-pennies(nickels(dimes(quarters(50))));
+// const outputDimes = quarters(50);
+const outputDimes = quarters(50);
+const outputNikels = dimes(outputDimes);
+const outputpennies = nickels(outputNikels);
+nickels(outputpennies);
+
+// pennies(nickels(dimes(quarters(50))));
+// quarters(dimes(nickels(pennies(50))));
+
+
+
 console.log("this is the result " + coins);
 
 
+
+
+
+
+
+
+
 // 
-// /*const multiplier = (numberToMultiplyBy) => {
+// numberToMultiplyBy- querters(value) = outer function
+// numberToMultiply(num) dimes = inner function
+// const result = multiplier(2)
+// result(3)
+
+// const multiplier = (numberToMultiplyBy) => {
 //   return (numberToMultiply) => {
 //     return numberToMultiplyBy * numberToMultiply;
 //   }
-// } */
+// }
 
 // const coinCounter = (userAmount) => {
 //   return (userAmount) => {
